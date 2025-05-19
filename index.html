@@ -71,6 +71,7 @@
 
     section {
       padding: 100px 0;
+      
     }
 
     h2.section-title {
@@ -82,6 +83,7 @@
 
     .card {
       border: none;
+      
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -104,13 +106,6 @@
       font-size: 1.3rem;
     }
 
-    footer {
-      background-color: #0d1b2a;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-
     .swiper {
       width: 100%;
       padding-bottom: 40px;
@@ -120,6 +115,31 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    /* المهارات */
+    .progress {
+      height: 14px;
+      background-color: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .progress-bar {
+      transition: width 2s ease;
+      font-weight: bold;
+      text-align: right;
+      padding-right: 10px;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
+
+    footer {
+      background-color: #0d1b2a;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
     }
   </style>
 </head>
@@ -136,6 +156,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">عن إنجاز</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">مهاراتنا</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
       </ul>
     </div>
@@ -165,7 +186,7 @@
       <div class="swiper-wrapper">
 
         <div class="swiper-slide">
-          <div class="card h-100" style="width: 22rem;">
+          <div class="card h-100 mx-auto" style="max-width: 360px; width: 100%;">
             <img src="" class="card-img-top" alt="إنتاج فيديو" />
             <div class="card-body text-center">
               <h5 class="card-title">إنتاج وتصوير </h5>
@@ -175,7 +196,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="card h-100" style="width: 22rem;">
+          <div class="card h-100 mx-auto" style="max-width: 360px; width: 100%;">
             <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="تصميم جرافيكي" />
             <div class="card-body text-center">
               <h5 class="card-title">تصميم جرافيكي</h5>
@@ -185,7 +206,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="card h-100" style="width: 22rem;">
+          <div class="card h-100 mx-auto" style="max-width: 360px; width: 100%;">
             <img src="https://images.unsplash.com/photo-1606312619344-b13f03b89167?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="خدمات إعلانية" />
             <div class="card-body text-center">
               <h5 class="card-title">خدمات إعلانية</h5>
@@ -195,7 +216,45 @@
         </div>
 
       </div>
-      <div class="swiper-pagination"></div>
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+
+    <!-- زر عرض كل الخدمات -->
+    <div class="text-center mt-4">
+      <a href="service.html" class="btn btn-primary">عرض كل الخدمات</a>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title text-center" data-aos="fade-up">مهاراتنا</h2>
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <h5>إنتاج الفيديو</h5>
+        <div class="progress">
+          <div class="progress-bar bg-warning" style="width: 0%;" data-percentage="95">95%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>تصميم جرافيكي</h5>
+        <div class="progress">
+          <div class="progress-bar bg-warning" style="width: 0%;" data-percentage="90">90%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>تسويق رقمي</h5>
+        <div class="progress">
+          <div class="progress-bar bg-warning" style="width: 0%;" data-percentage="88">88%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5>تطوير الهوية</h5>
+        <div class="progress">
+          <div class="progress-bar bg-warning" style="width: 0%;" data-percentage="92">92%</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -232,6 +291,18 @@
       992: { slidesPerView: 3 }
     }
   });
+
+  // تحريك النسب المئوية للمهارات
+  document.addEventListener("DOMContentLoaded", () => {
+    const bars = document.querySelectorAll('.progress-bar');
+    bars.forEach(bar => {
+      const target = bar.getAttribute('data-percentage');
+      setTimeout(() => {
+        bar.style.width = target + '%';
+      }, 2000);
+    });
+  });
+  
 </script>
 </body>
 </html>
